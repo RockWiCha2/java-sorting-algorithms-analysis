@@ -104,5 +104,5 @@ Q2/
 ---
 
 ## 👤 Author
-- Your Name  
+- James Harvey 
 - Cardiff University – CM1210 Object Oriented Java Programming
