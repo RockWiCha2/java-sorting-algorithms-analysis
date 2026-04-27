@@ -1,41 +1,108 @@
-# Java Sorting Algorithms Analysis
+# Java Data Structures and Algorithms Coursework
 
-This project implements and evaluates sorting algorithms as part of a university coursework assignment. The focus is on understanding algorithm design, performance, and optimisation using Java.
+This repository contains solutions for a university coursework assignment focused on sorting algorithms and data structures using Java.
+
+---
 
 ## 📌 Overview
 
-The project simulates a factory generating items with unique IDs and applies sorting algorithms to organise these datasets efficiently. It includes:
+The project explores algorithm design, implementation, and performance analysis. It is divided into two main parts:
 
-- Implementation of the **Quicksort algorithm**
-- Development of a **Hybrid Sorting Algorithm** (Quicksort + Insertion Sort)
-- Performance testing and comparison across different input types
+- **Q1:** Sorting Algorithms (Quicksort and Hybrid Sort)
+- **Q2:** Stack-based Text Editor (to be implemented)
+
+---
+
+# 🧩 Q1 – Sorting Algorithms
+
+## Description
+This section implements and evaluates sorting algorithms using datasets of varying sizes (1,000 to 500,000 elements). The goal is to analyse performance and optimise sorting behaviour.
 
 ## ⚙️ Features
+- Implementation of **Quicksort**
+- Implementation of a **Hybrid Sorting Algorithm** (Quicksort + Insertion Sort)
+- Performance testing on:
+  - Random datasets
+  - Sorted datasets
+  - Reverse-sorted datasets
+- Execution time measurement and averaging
 
-- Sorts datasets ranging from 1,000 to 500,000 elements
-- Tests performance on:
-  - Random data
-  - Sorted data
-  - Reverse-sorted data
-- Measures execution time and calculates averages
-- Implements optimisations to reduce worst-case behaviour
-
-## 🧠 Algorithms Implemented
+## 🧠 Algorithms
 
 ### Quicksort
 - Divide-and-conquer algorithm
 - Uses a **random pivot** to reduce worst-case scenarios
 - In-place sorting for improved space efficiency
 
-### Hybrid Algorithm
+### Hybrid Sort
 - Combines Quicksort with **Insertion Sort**
 - Switches to Insertion Sort for subarrays smaller than 50 elements
 - Reduces recursion overhead and improves performance
 
-## 📊 Performance Analysis
+## 📊 Performance Insights
+- Best performance observed on random datasets due to balanced partitions
+- Sorted and reverse-sorted inputs can degrade performance
+- Hybrid approach improves efficiency on smaller subarrays
 
-- Quicksort performs best on random datasets due to balanced partitions
-- Sorted and reverse-sorted inputs can degrade performance depending on pivot selection
-- The hybrid algorithm improves efficiency by optimising small subarray handling
+## 🗂️ Structure
+```
+Q1/
+├── QuickSort.java
+├── HybridSort.java
+├── TestSorting.java
+```
 
-## 🗂️ Project Structure
+## ▶️ How to Run
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/java-data-structures-coursework.git
+   ```
+2. Open in an IDE (IntelliJ / Eclipse / VS Code)
+3. Run:
+   ```
+   TestSorting.java
+   ```
+
+---
+
+# 🧱 Q2 – Stack-Based Text Editor (Coming Soon)
+
+## Description
+This section will implement a simple text editor using custom stack data structures.
+
+## Planned Features
+- TYPE <text> – Add text
+- DELETE <n> – Remove characters
+- DELETEWORD – Remove last word
+- UNDO – Undo last action
+- REDO – Redo last undone action
+- SHOW – Display current content
+
+## 🧠 Concepts
+- Custom implementation of a **generic stack**
+- Use of two stacks for **undo/redo functionality**
+- Event-driven command handling
+
+## 🗂️ Planned Structure
+```
+Q2/
+├── TextEditor.java
+├── Stack.java
+├── EditAction.java
+├── EditorApp.java
+```
+
+---
+
+## 📚 Key Concepts Covered
+- Divide and conquer algorithms
+- Algorithm optimisation
+- Time complexity analysis
+- Stack data structures
+- Undo/redo system design
+
+---
+
+## 👤 Author
+- Your Name  
+- Cardiff University – CM1210 Object Oriented Java Programming
