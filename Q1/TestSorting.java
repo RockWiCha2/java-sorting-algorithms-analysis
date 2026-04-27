@@ -64,23 +64,20 @@ public class TestSorting {
 
             int runs = 5;
 
-            System.out.println("QuickSort Random: " +
-                averageTime(randomList, runs, false));
+            System.out.println("\n------------------------------");
+            System.out.println("Testing size: " + size);
+            System.out.println("------------------------------");
 
-            System.out.println("QuickSort Sorted: " +
-                averageTime(sortedList, runs, false));
+            System.out.println("QuickSort:");
+            System.out.println("  Random  : " + (averageTime(randomList, runs, false) / 1_000_000.0) + " ms");
+            System.out.println("  Sorted  : " + (averageTime(sortedList, runs, false) / 1_000_000.0) + " ms");
+            System.out.println("  Reverse : " + (averageTime(reverseList, runs, false) / 1_000_000.0) + " ms");
 
-            System.out.println("QuickSort Reverse: " +
-                averageTime(reverseList, runs, false));
-
-            System.out.println("Hybrid Random: " +
-                averageTime(randomList, runs, true));
-
-            System.out.println("Hybrid Sorted: " +
-                averageTime(sortedList, runs, true));
-
-            System.out.println("Hybrid Reverse: " +
-                averageTime(reverseList, runs, true));
+            System.out.println("HybridSort:");
+            System.out.println("  Random  : " + (averageTime(randomList, runs, true) / 1_000_000.0) + " ms");
+            System.out.println("  Sorted  : " + (averageTime(sortedList, runs, true) / 1_000_000.0) + " ms");
+            System.out.println("  Reverse : " + (averageTime(reverseList, runs, true) / 1_000_000.0) + " ms");
+            
         }
     }
 }
