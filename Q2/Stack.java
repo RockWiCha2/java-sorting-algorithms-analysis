@@ -11,20 +11,28 @@ public class Stack<T> {
     private Node<T> top;
 
     public void push(T item) {
-        // TODO: Push logic
+        // push item
+        Node<T> node = new Node<>(item);
+        node.next = top;
+        top = node;
     }
 
     public T pop() {
-        // TODO: Pop logic
-        return null;
+        // pop item
+        if (isEmpty()) return null;
+
+        T value = top.data;
+        top = top.next;
+        return value;
     }
 
     public boolean isEmpty() {
+        // check empty
         return top == null;
     }
 
     public T peek() {
-        // Optional
+        // view top
         return isEmpty() ? null : top.data;
     }
 }

@@ -12,23 +12,76 @@ public class TextEditor {
     }
 
     public void type(String text) {
-        // TODO: Append text, push EditAction to undoStack, clear redoStack
+        if (content.length() + text.length() > MAX_LENGTH) {
+            System.out.println("Max length exceeded.");
+            return;
+        }
+
+        content.append(text);
+        undoStack.push(new EditAction(EditAction.ActionType.TYPE, text));
+        redoStack = new Stack<>();
     }
 
     public void delete(int numChars) {
-        // TODO: Delete from content, push EditAction to undoStack, clear redoStack
+        if (numChars <= 0 || content.length() == 0) return;
+
+        int count = Math.min(numChars, content.length());
+        String textRemoved = content.substring(content.length() - count);
+
+        content.delete(content.length() - count, content.length());
+
+        undoStack.push(new EditAction(EditAction.ActionType.DELETE, textRemoved));
+        redoStack = new Stack<>();
     }
 
     public void deleteWord() {
-        // TODO: Implement this to delete the last typed word.
+        if (content.length() == 0) return;
+
+        int idx = content.length() - 1;
+
+        while (idx >= 0 && content.charAt(idx) == ' ') idx--; // skip spaces
+
+        int endIdx = idx + 1;
+
+        while (idx >= 0 && content.charAt(idx) != ' ') idx--; // find word
+
+        int startIdx = idx + 1;
+
+        String wordRemoved = content.substring(startIdx, endIdx);
+        content.delete(startIdx, endIdx);
+
+        undoStack.push(new EditAction(EditAction.ActionType.DELETE, wordRemoved));
+        redoStack = new Stack<>();
     }
 
     public void undo() {
-        // TODO: Handle undo based on action type
+        if (undoStack.isEmpty()) return;
+
+        EditAction action = undoStack.pop();
+
+        if (action.getActionType() == EditAction.ActionType.TYPE) {
+            int n = action.getText().length();
+            content.delete(content.length() - n, content.length());
+        } else {
+            content.append(action.getText());
+        }
+
+        redoStack.push(action);
     }
 
     public void redo() {
-        // TODO: Handle redo based on action type
+        if (redoStack.isEmpty()) return;
+
+        EditAction action = redoStack.pop();
+
+        if (action.getActionType() == EditAction.ActionType.TYPE) {
+            content.append(action.getText());
+        } else {
+            int n = action.getText().length();
+            content.delete(content.length() - n, content.length());
+        }
+
+        undoStack.push(action);
     }
 
     public String getContent() {
